@@ -1,0 +1,98 @@
+
+[
+    {
+    "skill_name": "Dobrodruh",
+    "name": "dobrodruh",
+    "type_color": "pink",
+    "hp": 2,
+    "equipment": ["Jednoruční zbraně", "Malé štíty"],
+    "abilities": ["Obvazování ostatních za 1 život", "Lov"],
+    "selected": true,
+    "hidden":true
+    },
+
+    {
+    "skill_name": "Výcvik",
+    "name": "vycvik",
+    "type_color": "red",
+    "hp": 1,
+    "equipment": ["Lehká zbroj", "Obouruční zbraně", "Štíty"],
+    "abilities": ["1x za boj: Za 2 z blízka"],
+    "unlocks": ["bojovy_pokrik","tezkoodenec","velitel","nepoddajny", "kovar", "ostrostrelec", "vedmak"],
+    "abilities_upgraded": ["1hp"],
+    "upgrade_description": "Přidává 1 život",
+    "upgrade_reqs_description": "3 askety z Umění boje(Červené)",
+    "upgrade_type": "red",
+    "upgrade_value": 3,
+    "it_upgrades": ["self", "red"],
+    "upgraded": false,
+    "position_x": 2,
+    "postion_y": 3
+    },
+
+    {
+    "skill_name": "Bojový pokřik",
+    "name": "bojovy_pokrik",
+    "type_color": "red",
+    "unlocked_by": ["vycvik"],
+    "abilities": ["Domluvení si pokřiku až s 2 osobami(také s tímto aspektem)","1x za herčast, Po skupinovém zvolání pokřiku: za 3, za 2 z blízka(Nelze použít tento boj)"],
+    "abilities_upgraded": ["Domluvení si pokřiku až s 2 osobami(také s tímto aspektem)","1x za boj, Po skupinovém zvolání pokřiku: za 3, za 2 z blízka(Nelze použít tento boj)"],
+    "upgrade_description": "Pokřik může použít postava jednou za boj",
+    "upgrade_reqs_description": "Vylepšení Výcviku",
+    "upgraded":false,
+    "position_x": 1,
+    "postion_y": 1
+    },
+
+    {
+    "skill_name": "Těžkooděnec", 
+    "name": "tezkoodenec",
+    "type_color": "red",
+    "equipment": ["Těžká zbroj"],
+    "abilities": ["Pokud má štít a vedle spolubojovníke se šítem: 1x za herčas ingor poškození zásahu z dálky", "Pokud má štít a vedle spolubojovníke se šítem: 1x za herčas ingor poškození zásahu z blízka", "Pokud má zbroj: Redukce zásahů z dálky na 1"],
+   "unlocked_by": ["vycvik"],
+    "abilities_upgraded": ["Pokud má štít a vedle spolubojovníke se šítem: 1x za boj ingor poškození zásahu z dálky", "Pokud má štít a vedle spolubojovníke se šítem: 1x za boj ingor poškození zásahu z blízka", "Pokud má zbroj: Redukce zásahů z dálky na 1"],
+    "upgrade_description": "Shchopnosti místo jednou za herčas může použít jednou za boj",
+    "upgrade_reqs_description": "Vylepšení Výcviku",
+    "upgraded":false,
+    "position_x": 1,
+    "postion_y": 2 
+    },
+
+    {
+    "skill_name": "Prozření", 
+    "name": "prozreni",
+    "type_color": "blue",
+    "power_words": 4,
+    "equipment": ["Základní kouzla"],
+    "abilities": ["1x za herčas meditace: doplnění polovinu slov moci(zaokrouhleno dolů)"],
+    "unlocks": ["umeni_tradicni, umeni_ucene, umeni_prakticke, bojovy_mag, krvavy_mag, vedmak, lecitel"],
+    "abilities_upgraded": ["2x za herčas meditace: doplnění polovinu slov moci(zaokrouhleno dolů)"],
+    "upgrade_description": "Meditovat může dvakrát za herčas",
+    "upgrade_reqs_description": "Tři aspekty z Magického nadání(Modré)",
+    "upgrade_type": "blue",
+    "upgrade_value": 3,
+    "upgraded": false,
+    "position_x": 4,
+    "postion_y": 3 
+    },
+
+    {
+    "skill_name": "Vědmák", 
+    "name": "vedmak",
+    "type_color": "purple",
+    "hp": 1, 
+    "power_words": 2,
+    "abilities": ["Může používat zbraně ke kouzlení", "1x za herčas si jakýmkoli kouzlem navíc k efektu vyléčí 1 život"],
+    "abilities_upgraded": ["Může používat zbraně ke kouzlení", "1x za boj si jakýmkoli kouzlem navíc k efektu vyléčí 1 život"],
+    "upgrade_description": "Místo jednou za herčas si jendou za boj kouzlem vyléčí 1 život navíc",
+    "upgrade_reqs_description": "Čtvrtá úroveň",
+    "upgrade_type": "lvl",
+    "upgrade_value": 4,
+    "unlocked_by": ["vycvik", "prozreni"],
+    "upgraded": false,
+    "position_x": 3,
+    "postion_y": 4 
+    }
+    
+]

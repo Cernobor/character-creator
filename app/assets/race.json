@@ -1,0 +1,21 @@
+[
+    {       
+        "race_name": "Člověk",    
+        "name": "clovek", 
+        "race": "clovek",
+        "subrace": false
+    },
+    {       
+        "race_name": "Trpaslík",
+        "name": "trpaslik", 
+        "race": "trpaslik",
+        "subrace": false
+    },
+    {       
+        "race_name": "Kharhard",
+        "name": "kharhard ", 
+        "race": "trpaslik",
+        "subrace": true,
+        "abilities": ["Vykřiknout Kharhard: 1x za herčas kladivem/sekyrou za 2 - s helmou 1x za boj"]
+    }
+]

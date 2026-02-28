@@ -1,0 +1,71 @@
+    {
+    "skill_name": "",
+    "name": "",
+    "type_color": "",
+    "hp": , 
+    "power_words": ,
+    "potions": ,
+    "equipment": [""],
+    "abilities": [""],
+    "unlocks": [""],
+    "abilities_upgraded": [""],
+    "upgrade_description": "",
+    "upgrade_reqs_description": "",
+    "upgrade_type": "",
+    "upgrade_value": ,
+    "unlocked_by": [""],
+    "it_upgrades": [""],
+    "upgraded": false,
+    "position_x": ,
+    "postion_y": ,
+    "hidden": true,
+    "selected": true
+    }
+
+
+    skill_name = string;  -poinné // gramatický název
+    name = string;  -poinné //odkazovací název
+    type_color = string;  -poinné
+    hp = number; 
+    power_words = number;
+    potions = number;
+    equipment = string[];
+    abilities= string[];
+    unlocks = number[];
+    abilities_upgraded = string[];  //jedná li se o životy(hp), slova moci(pw) nebo lektvar(pt), tak se značí číslem a zkratkou (1hp, 4pw, 4pt,....)
+    upgrade_description = string;
+    upgrade_reqs_description = string;
+    upgrade_type = string;
+    upgrade_value = number;
+    unlocked_by = number[];
+    upgraded = boolean;  //pouze pokud je vylepšitelné
+    it_upgrades = string[]; //pouze pokud to vylepšuje (i) něco jiného, než sebe (Fungují "type_color" a i "name")
+    position_x = number
+    postion_y = number 
+    hidden = boolean //poze v případě, že se jedná o neviditelný aspekt(nezobrazuje se jako tlačítko)
+    selected = boolean //pouze v případě, když má tento aspekt postava již od začátku
+    
+
+
+
+
+
+    {       
+        "race_name": "",
+        "name": "", 
+        "race": "",
+        "subrace": ,
+        "hp": , 
+        "power_words": ,
+        "potions": ,
+        "abilities": [""]
+    }
+
+        race_name = string -povinné //gramatický název
+        name = string -povinné//odkazovací název
+        race = string -povinné// v Případě subrace se zde dává "name" rasy
+        subrace = boolean -povinné
+         hp = number; 
+        power_words = number;
+        potions = number;
+        abilities = [""]// jen pro subrace
