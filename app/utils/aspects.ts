@@ -112,16 +112,22 @@ export const copmHp = computed(() => {
 
 export const compPowerWords = computed(() => {
   const aspectPw = selectedAspects.value.reduce((acc, aspect) => {
-    return acc + (aspect.power_words || 0)}, 0
-  );
+    let val = aspect.power_words || 0;
+    const abilites = (aspect.upgraded && aspect.abilities_upgraded) ? aspect.abilities_upgraded : (aspect.abilities || []);
+    val += upgrStatBonuses(abilites, 'pw');
+    return acc + val
+  }, 0);
   const racePw= (selectedRaceData.value as any)?.power_words || 0;
   return aspectPw + racePw;
 });
 
 export const compPotions = computed(() => {
   const aspectPots = selectedAspects.value.reduce((acc, aspect) => {
-    return acc + (aspect.potions || 0)}, 0
-  );
+    let val = aspect.potions || 0;
+    const abilites = (aspect.upgraded && aspect.abilities_upgraded) ? aspect.abilities_upgraded : (aspect.abilities || []);
+    val += upgrStatBonuses(abilites, 'pt');
+    return acc + val
+  }, 0);
   const racePots= (selectedRaceData.value as any)?.potions || 0;
   return aspectPots + racePots;
 });
@@ -139,7 +145,9 @@ export const compAbilities = computed(() => {
 });
 
 export const compEquipment = computed(() => {
-  return selectedAspects.value.flatMap(aspect => aspect.equipment || [])
+  const dynamicEquipment = selectedAspects.value.flatMap(aspect => aspect.equipment || [])
+  const raceequipment = (selectedRaceData.value as any)?.equipment || [];
+  return [...raceequipment, ...dynamicEquipment];
 });
 
 export const actLevel = computed(() => {
@@ -155,7 +163,34 @@ export const reset = () => {
     upgraded: false,
     pressed_aspect: function() { toggleAspect(this as AspectList); }
   }));
+  selectedRace.value = '';
+  selectedSubrace.value = '';
   updateUnlocks();
   checkUpgrade();
   
+}
+
+export const saveLocal = () => {
+  const savedData = {
+    race: selectedRace.value,
+    subrace: selectedSubrace.value,
+    activeAspects: aspectList.value.filter(aspect => aspect.selected). map(aspect => aspect.name),
+  }
+  localStorage.setItem('savedData', JSON.stringify(savedData));
+}
+
+export const loadLocal = () => {
+  const savedData = localStorage.getItem('savedData');
+  if (savedData) {
+    const data = JSON.parse(savedData);
+    selectedRace.value = data.race || '';
+    selectedSubrace.value = data.subrace || '';
+    if(data.activeAspects){
+      aspectList.value.forEach(aspect => {
+        aspect.selected = data.activeAspects.includes(aspect.name);
+      });
+    }
+    updateUnlocks();
+    checkUpgrade();
+  }
 }

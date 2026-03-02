@@ -50,13 +50,180 @@
     "type_color": "red",
     "equipment": ["Těžká zbroj"],
     "abilities": ["Pokud má štít a vedle spolubojovníke se šítem: 1x za herčas ingor poškození zásahu z dálky", "Pokud má štít a vedle spolubojovníke se šítem: 1x za herčas ingor poškození zásahu z blízka", "Pokud má zbroj: Redukce zásahů z dálky na 1"],
-   "unlocked_by": ["vycvik"],
+    "unlocked_by": ["vycvik"],
     "abilities_upgraded": ["Pokud má štít a vedle spolubojovníke se šítem: 1x za boj ingor poškození zásahu z dálky", "Pokud má štít a vedle spolubojovníke se šítem: 1x za boj ingor poškození zásahu z blízka", "Pokud má zbroj: Redukce zásahů z dálky na 1"],
     "upgrade_description": "Shchopnosti místo jednou za herčas může použít jednou za boj",
     "upgrade_reqs_description": "Vylepšení Výcviku",
     "upgraded":false,
     "position_x": 1,
     "postion_y": 2 
+    },
+
+{
+    "skill_name": "Velitel",
+    "name": "velitel",
+    "type_color": "red",
+    "equipment": ["Prapor"],
+    "abilities": ["Vytvoření jednotky s využitím praporu(3-7 členů)", "Imunita na strach pro jednotku", "2x za boj rozkaz", "Rozkaz: Angriff! / Atak! - první zásah z blízka za 2", "Rozkaz: Zurück! / Z powrotem!  - imunita na strach, první zásah zblízka", "Rozkaz: Schulter an Schulter! / Ramię w ramię! – imunita na první následující zásah střelnou zbraní."],
+    "unlocked_by": ["vycvik"],
+    "position_x": 1,
+    "postion_y": 3
+    },
+
+    {
+    "skill_name": "Nepoddajný",
+    "name": "nepoddajny",
+    "type_color": "red",
+    "abilities": ["V případě ztráty posledního života: 1x za herčas ignoruje poškození z blízka"],
+    "abilities_upgraded": ["V případě ztráty posledního života: 1x za boj ignoruje poškození z blízka"],
+    "upgrade_description": "Tuto schopnost může použít jednou za boj místo za herčas",
+    "upgrade_reqs_description": "Vylepšení Výcviku",
+    "unlocked_by": ["vycvik"],
+    "upgraded": false,
+    "position_x": 1,
+    "postion_y": 4
+    },
+
+    {
+    "skill_name": "Zvěd",
+    "name": "zved",
+    "type_color": "green",
+    "hp": 1, 
+    "equipment": ["Luk", "Kuš", "Loktarovka"],
+    "abilities": ["1x za herčas: Sejme obvaz z jiné postavy a obvážejí znovu"],
+    "unlocks": ["prizrak", "lovec", "ranhojic", "medik", "ruce_vzhuru", "lecitel", "zaskodnik", "ostrostrelec"],
+    "abilities_upgraded": ["2x za herčas: Sejme obvaz z jiné postavy a obvážejí znovu"],
+    "upgrade_description": "Shchopnosti místo jednou za herčas může použít dvakrát za herčas",
+    "upgrade_reqs_description": "Tři aspekty ze Znalosti přírody(Zelené)",
+    "upgrade_type": "green",
+    "upgrade_value": 3,
+    "it_upgrades": ["self", "prizrak"],
+    "upgraded": false,
+    "position_x": 2,
+    "postion_y": 7
+    },
+
+    {
+    "skill_name": "Přízrak",
+    "name": "prizrak",
+    "type_color": "green",
+    "equipment": ["Kombinace"],
+    "abilities": ["Před lovem se může podívat do obálky zvířete", "V přírodě: má +1 zboj", "Pokud v přírodě: 1x za herčas výber z: Ignorování zásahu nebo První zásah oponenta střelnou zbraní za 3 nebo První zásah z blízka za 2"],
+    "abilities_upgraded": ["Před lovem se může podívat do obálky zvířete", "V přírodě: má +1 zboj", "Pokud v přírodě: 2x za herčas výběr z: Ignorování zásahu nebo První zásah oponenta střelnou zbraní za 3 nebo První zásah z blízka za 2"],
+    "upgrade_description": "Místo jednou za herčas může použít schopnosti dvakrát za herčas",
+    "upgrade_reqs_description": "Vylepšení Zvěda",
+    "unlocked_by": ["zved"],
+    "upgraded": false,
+    "position_x": 1,
+    "postion_y": 6
+    },
+
+    {
+    "skill_name": "Lovec",
+    "name": "lovec",
+    "type_color": "green",
+    "abilities": ["Nové možnosti při lovu(v gamebooku)", "Výroba pastí", "O 1 menší zranění při lovu", "1x za boj efekt paralíza střelnou zbraní"],
+    "unlocked_by": ["zved"],
+    "position_x": 1,
+    "postion_y": 7
+    },
+
+    {
+    "skill_name": "Ranhojič",
+    "name": "ranhojic",
+    "type_color": "green",
+    "abilities": ["Obvazy léčí za 2", "Může obvazovat sama sebe"],
+    "unlocked_by": ["zved"],
+    "position_x": 1,
+    "postion_y": 8
+    },
+
+    {
+    "skill_name": "Medik",
+    "name": "medik",
+    "type_color": "green",
+    "abilities": ["Může obvázat jednou obvázanou postavu", "Obvazem vyléčí těžké zranění - efekt na začátku dalšího herčasu"],
+    "unlocked_by": ["zved"],
+    "position_x": 1,
+    "postion_y": 9
+    },
+
+    {
+    "skill_name": "Ruce vzhůru!",
+    "name": "ruce_vzhuru",
+    "type_color": "green",
+    "abilities": ["1x za boj: Strach na koho míří puškou"],
+    "abilities_upgraded": ["2x za boj: Strach na koho míří puškou"],
+    "upgrade_description": "Shchopnosti místo jednou za boj může použít dvakrát za boj",
+    "upgrade_reqs_description": "Vylepšení Zvěda",
+    "upgrade_type": "green",
+    "upgrade_value": 3,
+    "unlocked_by": ["zved"],
+    "it_upgrades": ["self"],
+    "upgraded": false,
+    "position_x": 1,
+    "postion_y": 10
+    },
+
+    {
+    "skill_name": "Pouliční moudrost",
+    "name": "poulicni_moudrost",
+    "type_color": "yellow",
+    "potions": 5,
+    "equipment": ["Základní lektvary", "Paklíč(magnet)"],
+    "abilities": ["Kolíček(okrádání) se jménem na 200s"],
+    "unlocks": ["vysetrovatel", "magistr", "sarlatan", "dryacnik", "zaskodnik", "krvavy_mag", "kovar"],
+    "position_x": 4,
+    "postion_y": 3
+    },
+
+    {
+    "skill_name": "Vyšetřovatel",
+    "name": "vysetrovatel",
+    "type_color": "yellow",
+    "abilities": ["Čtení myšlenek na postavu ve své moci", "Imunita na 1 otázku u čtení myšlenek"],
+    "abilities_upgraded": ["Čtení myšlenek na postavu ve své moci", "Imunita na 2 otázky u čtení myšlenek"],
+    "upgrade_description": "Může na dvě otázky při čtení myšlenek odpovědět nepravdivě či neodpovědět vůbec",
+    "upgrade_reqs_description": "Tři aspekty ze Znalosti materiálů(Žluté)",
+    "upgrade_type": "yellow",
+    "upgrade_value": 3,
+    "unlocked_by": ["poulicni_moudrost"],
+    "upgraded": false,
+    "position_x": 5,
+    "postion_y": 1
+    },
+
+    {
+    "skill_name": "Magistr",
+    "name": "magistr",
+    "type_color": "yellow",
+    "hp": 1,
+    "potions": 3,
+    "equipment": ["Pokročilé alchymistické výrobky"],
+    "unlocked_by": ["poulicni_moudrost"],
+    "position_x": 5,
+    "postion_y": 2
+    },
+
+    {
+    "skill_name": "Šarlatán",
+    "name": "sarlatan",
+    "type_color": "yellow",
+    "abilities": ["Kolíček(okrádání) bez jmenovky na 200s", "Kolíček(okrádání) se jménem na 100s", "Naceňování", "Podívání se pod klapku zámku během otevírání", "Ve hrách 2 za hru: Přetočit kostku/minci nebo líznout si o kartu víc a jednu vrátit"],
+    "unlocked_by": ["poulicni_moudrost"],
+    "position_x": 5,
+    "postion_y": 3
+    },
+
+    {
+    "skill_name": "Dryáčník",
+    "name": "dryacnik",
+    "type_color": "yellow",
+    "potions": 4,
+    "abilities": ["Může číst popisek lektvaru", "1x za herčas použít 1 lektvar 2x"],
+    "unlocked_by": ["poulicni_moudrost"],
+    "position_x": 5,
+    "postion_y": 4
     },
 
     {
@@ -66,7 +233,7 @@
     "power_words": 4,
     "equipment": ["Základní kouzla"],
     "abilities": ["1x za herčas meditace: doplnění polovinu slov moci(zaokrouhleno dolů)"],
-    "unlocks": ["umeni_tradicni, umeni_ucene, umeni_prakticke, bojovy_mag, krvavy_mag, vedmak, lecitel"],
+    "unlocks": ["umeni_tradicni", "umeni_ucene", "umeni_prakticke", "bojovy_mag", "krvavy_mag", "vedmak", "lecitel"],
     "abilities_upgraded": ["2x za herčas meditace: doplnění polovinu slov moci(zaokrouhleno dolů)"],
     "upgrade_description": "Meditovat může dvakrát za herčas",
     "upgrade_reqs_description": "Tři aspekty z Magického nadání(Modré)",
@@ -74,7 +241,58 @@
     "upgrade_value": 3,
     "upgraded": false,
     "position_x": 4,
-    "postion_y": 3 
+    "postion_y": 7 
+    },
+
+    {
+    "skill_name": "Umění Tradiční",
+    "name": "umeni_tradicni",
+    "type_color": "blue",
+    "power_words": 4,
+    "equipment": ["Kouzla umění předků"],
+    "unlocked_by": ["prozreni"],
+    "position_x": 5,
+    "postion_y": 6
+    },
+
+    {
+    "skill_name": "Umění Učené",
+    "name": "umeni_ucene",
+    "type_color": "blue",
+    "power_words": 4,
+    "equipment": ["Kouzla umění učeného"],
+    "unlocked_by": ["prozreni"],
+    "position_x": 5,
+    "postion_y": 7
+    },
+
+    {
+    "skill_name": "Umění Praktické",
+    "name": "umeni_prakticke",
+    "type_color": "blue",
+    "power_words": 2,
+    "abilities": ["1x za herčas: Kouzlo bez formule", "1x za herčas: Kouzlo bez propriety(nekritické)", "1x za herčas: Kouzlo bez potřebného aspektu"],
+    "abilities_upgraded": ["2x za herčas: Kouzlo bez formule", "2x za herčas: Kouzlo bez propriety(nekritické)", "2x za herčas: Kouzlo bez potřebného aspektu"],
+    "upgrade_description": "Všechny schopnosti může použít dvakrát za herčas",
+    "upgrade_reqs_description": "Tři aspekty z Magického nadání(Modré)",
+    "upgrade_type": "blue",
+    "upgrade_value": 3,
+    "unlocked_by": ["prozreni"],
+    "it_upgrades": ["self"],
+    "upgraded": false,
+    "position_x": 5,
+    "postion_y": 8
+    },
+
+    {
+    "skill_name": "Bojový mág",
+    "name": "bojovy_mag",
+    "type_color": "blue",
+    "hp": 1, 
+    "abilities": ["Po zranění oponenta: Příští kouzlo o 1 levnější (min. 1; nesčítá se)"],
+    "unlocked_by": ["prozreni"],
+    "position_x": 5,
+    "postion_y": 9
     },
 
     {
@@ -93,6 +311,99 @@
     "upgraded": false,
     "position_x": 3,
     "postion_y": 4 
+    },
+
+    {
+    "skill_name": "Ostrostřelec", 
+    "name": "ostrostrelec",
+    "type_color": "brown",
+    "abilities": ["1x za herčas: Lukem, nebo kuší za 3", "1x za herčas: Ignorování zásahu z dálky"],
+    "abilities_upgraded": ["1x za boj: Lukem, nebo kuší za 3", "1x za boj: Ignorování zásahu z dálky"],
+    "upgrade_description": "Místo jednou za herčas může využít schopnosti jendou za boj",
+    "upgrade_reqs_description": "Čtvrtá úroveň",
+    "upgrade_type": "lvl",
+    "upgrade_value": 4,
+    "unlocked_by": ["vycvik", "zved"],
+    "upgraded": false,
+    "position_x": 2,
+    "postion_y": 5 
+    },
+
+    {
+    "skill_name": "Záškodník", 
+    "name": "zaskodnik",
+    "type_color": "lime",
+    "hp": 1, 
+    "abilities": ["1x za herčas 1 vyrobytelná petarda zdarma", "Redukce zranění projektily na 1"],
+    "abilities_upgraded": ["2x za herčas 1 vyrobytelné petardy zdarma", "Redukce zranění projektily na 1"],
+    "upgrade_description": "Petardu zadarmo může získat dvakrát za herčas",
+    "upgrade_reqs_description": "Čtvrtá úroveň",
+    "upgrade_type": "lvl",
+    "upgrade_value": 4,
+    "unlocked_by": ["zved", "poulicni_moudrost"],
+    "upgraded": false,
+    "position_x": 3,
+    "postion_y": 6 
+    },
+
+    {
+    "skill_name": "Léčitel", 
+    "name": "lecitel",
+    "type_color": "cyan",
+    "power_words": 2,
+    "abilities": ["1x za herčas při léčení druhého vyléčit těžké zranění", "1x za herčas za 2 slova moci: imunita na zásah"],
+    "abilities_upgraded": ["2x za herčas při léčení druhého vyléčit těžké zranění", "2x za herčas za 2 slova moci: imunita na zásah"],
+    "upgrade_description": "Obě schopnosti lze použít dvakrát za herčas",
+    "upgrade_reqs_description": "Čtvrtá úroveň",
+    "upgrade_type": "lvl",
+    "upgrade_value": 4,
+    "unlocked_by": ["zved", "prozreni"],
+    "upgraded": false,
+    "position_x": 3,
+    "postion_y": 7 
+    },
+
+    {
+    "skill_name": "Kovář", 
+    "name": "kovar",
+    "type_color": "orange",
+    "hp": 1,
+    "equipment": ["Výroba brousku"],
+    "abilities_upgraded": ["1x za herčas: Spotřebování nepoužitého brousku, na svou zbraň najednou(má pak 3x za 2)","1hp"],
+    "upgrade_description": "Jednou za herčas může spotřebovat na svojí zbraň nepoužitý brousek najednou. Přidává o jeden život navíc",
+    "upgrade_reqs_description": "Čtvrtá úroveň",
+    "upgrade_type": "lvl",
+    "upgrade_value": 4,
+    "unlocked_by": ["vycvik", "poulicni_moudrost"],
+    "upgraded": false,
+    "position_x": 3,
+    "postion_y": 3
+    },
+
+    {
+    "skill_name": "Krvavý mág", 
+    "name": "krvavy_mag",
+    "type_color": "white",
+    "hp": 1, 
+    "abilities": ["Zranění se za x životů => 2x slov moci", "Nesmí léčit žádného krvavého mága(včetně sebe)", "1x za herčas za 1 život: Odolá kouzlu(kromě strachu)", "Vypití lektvaru: vyléčení 1 životu k efektu"],
+    "abilities_upgraded": ["Zranění se za x životů => 2x slov moci", "Nesmí léčit žádného krvavého mága(včetně sebe)", "2x za herčas za 1 život: Odolá kouzlu(kromě strachu)", "Vypití lektvaru: vyléčení 1hp k efektu", "1x za herčas po boji: obnovení 2 slova moci nebo 1 život"],
+    "upgrade_description": "Odolání efektu kouzla může postava použít dvakrát za herčas, jednou za herčas si může po boji obnovit 1 život, nebo 2 slova moci",
+    "upgrade_reqs_description": "Čtvrtá úroveň",
+    "upgrade_type": "lvl",
+    "upgrade_value": 4,
+    "unlocked_by": ["prozreni", "poulicni_moudrost"],
+    "upgraded": false,
+    "position_x": 4,
+    "postion_y": 5
+    },
+
+    {
+    "skill_name": "Divoká magie", 
+    "name": "dovoka_magie",
+    "type_color": "Grey",
+    "abilities": ["Před herčasem si vylosuje 2 kouzla - celkem lze seslat až 3x za herčas(zadarmo, bez aspektu a propriet)"],
+    "position_x": 3,
+    "postion_y": 1
     }
     
 ]

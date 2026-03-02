@@ -5,9 +5,12 @@
 .nitro
 .cache
 dist
+.env
 
 # Node dependencies
 node_modules
+.nuxt
+.output
 
 # Logs
 logs
@@ -22,3 +25,5 @@ logs
 .env
 .env.*
 !.env.example
+
+.vs

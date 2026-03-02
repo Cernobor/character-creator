@@ -5,17 +5,103 @@
         "race": "clovek",
         "subrace": false
     },
+
+    {       
+        "race_name": "Orlemburk",
+        "name": "orlemburk", 
+        "race": "clovek",
+        "subrace": true,
+        "abilities": ["1x za herčas může ktvar vypít na dvakrát (lektvar musí být na počátku celý)"]
+    },
+
+    {       
+        "race_name": "Poljana",
+        "name": "poljana", 
+        "race": "clovek",
+        "subrace": true,
+        "abilities": ["Vylosuje si 1 kouzlo před herčasem, může ho použít 1x (lze kombinovat s divokou magií)"]
+    },
+
+    {       
+        "race_name": "Vrangen",
+        "name": "vrangen", 
+        "race": "clovek",
+        "subrace": true,
+        "abilities": ["1x za herčas -1 život(nelze použít při 1 životě), -1 max život(do konce herčasu): může znovu použít schopnost, co již použil(ne ve stejném boji). Bojové dovednosti doprovodit vrangenským pokřikem"]
+    },
+
+    {       
+        "race_name": "Starověrný lid",
+        "name": "staroverny_lid", 
+        "race": "clovek",
+        "subrace": true,
+        "abilities": ["1x za herčas vyléčit jinému Starověrci, v případě, že je vyléčen a nevyužil schopnost => nelze ji už využít tento herčas"]
+    },
+
+    {       
+        "race_name": "Pomezní lid",
+        "name": "pomezni_lid", 
+        "race": "clovek",
+        "subrace": true,
+        "equipment": ["+1 orlén"]
+    },
+
     {       
         "race_name": "Trpaslík",
         "name": "trpaslik", 
         "race": "trpaslik",
         "subrace": false
     },
+
+    {       
+        "race_name": "Gotrambur",
+        "name": "gotrambur", 
+        "race": "trpaslik",
+        "subrace": true,
+        "abilities": ["1x za herčas: ignorace zásahu (Potřeba vykřiknout Gotrambur!)"]
+    },
+
+    {       
+        "race_name": "Skalendar",
+        "name": "skalendar", 
+        "race": "trpaslik",
+        "subrace": true,
+        "abilities": ["Na začátku herčasu léčí své těžké zranění"]
+    },
+
     {       
         "race_name": "Kharhard",
         "name": "kharhard ", 
         "race": "trpaslik",
         "subrace": true,
         "abilities": ["Vykřiknout Kharhard: 1x za herčas kladivem/sekyrou za 2 - s helmou 1x za boj"]
+    },
+
+    {       
+        "race_name": "Elf",
+        "name": "elf", 
+        "race": "elf",
+        "subrace": false
+    },
+    {       
+        "race_name": "Zanmení Stínů",
+        "name": "znameni_stinu", 
+        "race": "elf",
+        "subrace": true,
+        "abilities": ["Při vyslýchání může odpovědět o 1 pootázku navíc lživě či vůbec(Lze kombinovat s jinými podobnými efekty) "]
+    },
+    {       
+        "race_name": "Znamení Světla",
+        "name": "znameni_svetla", 
+        "race": "elf",
+        "subrace": true,
+        "abilities": ["1x za herčas: Meditací na slunci po boji si vyléčit 1 život"]
+    },
+    {       
+        "race_name": "Znamení Pramene",
+        "name": " ", 
+        "race": "elf",
+        "subrace": true,
+        "power_words": 1
     }
 ]

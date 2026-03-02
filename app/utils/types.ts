@@ -33,5 +33,6 @@ export interface RaceList{
     potions?: number;
     power_words?: number;
     abilities?: string[];
+    equipment?: string[];
 
 }
