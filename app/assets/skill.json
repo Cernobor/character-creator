@@ -325,8 +325,8 @@
     "upgrade_value": 4,
     "unlocked_by": ["vycvik", "zved"],
     "upgraded": false,
-    "position_x": 2,
-    "postion_y": 5 
+    "position_x": 3,
+    "postion_y": 8 
     },
 
     {
@@ -383,7 +383,7 @@
     {
     "skill_name": "Krvavý mág", 
     "name": "krvavy_mag",
-    "type_color": "white",
+    "type_color": "pink",
     "hp": 1, 
     "abilities": ["Zranění se za x životů => 2x slov moci", "Nesmí léčit žádného krvavého mága(včetně sebe)", "1x za herčas za 1 život: Odolá kouzlu(kromě strachu)", "Vypití lektvaru: vyléčení 1 životu k efektu"],
     "abilities_upgraded": ["Zranění se za x životů => 2x slov moci", "Nesmí léčit žádného krvavého mága(včetně sebe)", "2x za herčas za 1 život: Odolá kouzlu(kromě strachu)", "Vypití lektvaru: vyléčení 1hp k efektu", "1x za herčas po boji: obnovení 2 slova moci nebo 1 život"],
@@ -393,14 +393,14 @@
     "upgrade_value": 4,
     "unlocked_by": ["prozreni", "poulicni_moudrost"],
     "upgraded": false,
-    "position_x": 4,
+    "position_x": 3,
     "postion_y": 5
     },
 
     {
     "skill_name": "Divoká magie", 
-    "name": "dovoka_magie",
-    "type_color": "Grey",
+    "name": "divoka_magie",
+    "type_color": "white",
     "abilities": ["Před herčasem si vylosuje 2 kouzla - celkem lze seslat až 3x za herčas(zadarmo, bez aspektu a propriet)"],
     "position_x": 3,
     "postion_y": 1
