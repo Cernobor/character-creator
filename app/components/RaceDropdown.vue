@@ -56,9 +56,9 @@ const toggleRace = (raceName) => {
 
 <style scoped>
   @import url('https://fonts.googleapis.com/css2?family=Alice&display=swap');
-  .race-picker-container { display: flex; flex-direction: column; gap: 15px; padding-bottom: 20px;}
+  .race-picker-container { display: flex; flex-direction: column; gap: 15px; padding-bottom: 12px; padding-left: 2vw; padding-top: 2vw;}
   .race-grid { display: flex; flex-wrap: wrap; gap: 10px;  align-items: center;}
-  .race-column {postion: relative; display: flex; flex-direction: column; align-items: center;}
+  .race-column {position: relative; display: flex; flex-direction: column; align-items: center;}
   .subrace-vertical-list {z-index: 11; display: flex; flex-direction: column; animation: fadeIn 0.3s ease; position: absolute; margin-top: 42px;}
   .race-btn {min-width: 131px; height: 45px; filter: brightness(0.8); z-index: 10; transition: all 0.2s ease; background-image: url('/images/race_button.png'); background-size: 100% 100%;  background-position: center; background-repeat: no-repeat; background-color: transparent; border: none; font-family: "Alice", serif; color: white;  padding: 0 15px; cursor: pointer;}  
   .race-btn.selected { z-index: 10; filter: brightness(1.2);  border: 2px solid gold;  transform: scale(1.05); }
