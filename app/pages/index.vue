@@ -104,8 +104,9 @@ watch(
 
 <style scooped>
   @import url('https://fonts.googleapis.com/css2?family=Alice&display=swap');
-  #main-row {display: flex; align-items: center; gap: 60%; padding-left: 20px;padding-right: 5%; width: 100%; box-sizing: border-box;}
-  #reset-btn{padding-top: 0px; font-family: "Alice", serif; font-weight: 400; font-style: normal; font-size: 20px; color: aliceblue; -webkit-text-stroke: 0.2px grey; align-self: right; min-width: 100px; height: 50px; background-image: url('/images/reset.png'); background-size: 100% 100%; background-position: center; background-repeat: no-repeat; background-color: transparent; border: none;}
+#main-row {display: flex; align-items: center; justify-content: space-between; padding: 10px 5% 10px 20px; width: 100%; box-sizing: border-box; gap: 10px;}
+  #main-row h1 {margin: 0; flex-shrink: 1; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;}
+  #reset-btn{padding-top: 0px; flex-shrink: 0; font-family: "Alice", serif; font-weight: 400; font-style: normal; font-size: 20px; color: aliceblue; -webkit-text-stroke: 0.2px grey; align-self: right; min-width: 100px; height: 50px; background-image: url('/images/reset.png'); background-size: 100% 100%; background-position: center; background-repeat: no-repeat; background-color: transparent; border: none;}
   #reset-btn:hover {filter: brightness(1.2);}
   #reset-btn:active {filter: brightness(0.8);}
   .desktop-layout {display: flex; flex-direction: row;flex-wrap: wrap; align-items: flex-start; gap: 40px; padding: 20px;}
