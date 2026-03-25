@@ -102,7 +102,7 @@ watch(
   </div>
 </template>
 
-<style scooped>
+<style scoped>
   @import url('https://fonts.googleapis.com/css2?family=Alice&display=swap');
 #main-row {display: flex; align-items: center; justify-content: space-between; padding: 10px 5% 10px 20px; width: 100%; box-sizing: border-box; gap: 10px;}
   #main-row h1 {margin: 0; flex-shrink: 1; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;}
