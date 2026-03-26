@@ -5,29 +5,29 @@ const props = defineProps<{
 }>();
 
 const buttonBackgrounds: Record<string, string> = {
-  red: '/images/red.png',
-  green: '/images/green.png',
-  yellow: '/images/yellow.png',
-  blue: '/images/blue.png',
-  grey: '/images/locked.png',
+  red: '/images/red.webp',
+  green: '/images/green.webp',
+  yellow: '/images/yellow.webp',
+  blue: '/images/blue.webp',
+  grey: '/images/locked.webp',
 };
 
 const getButtonBackground = (btn: AspectList) => {
   if (!btn.unlocked) {
     if(btn.type_color==='red' || btn.type_color==='blue'|| btn.type_color==='yellow' || btn.type_color==='green'){
-      return { backgroundImage: `url(/images/${btn.type_color}.png)`, opacity: '0.6' };
+      return { backgroundImage: `url(/images/${btn.type_color}.webp)`, opacity: '0.6' };
     }
     else{
-      return { backgroundImage: `url(/images/${btn.name}.png)`, opacity: '0.6' };
+      return { backgroundImage: `url(/images/${btn.name}.webp)`, opacity: '0.6' };
     }
   }
   let bgUrl = "";
   const stateSuffix = btn.selected ? '_selected' : '';
   if(btn.type_color==='red' || btn.type_color==='blue'|| btn.type_color==='yellow' || btn.type_color==='green'){
-    bgUrl = `/images/${btn.type_color}${stateSuffix}.png`;
+    bgUrl = `/images/${btn.type_color}${stateSuffix}.webp`;
   }
   else{
-    bgUrl = `/images/${btn.name}${stateSuffix}.png`;
+    bgUrl = `/images/${btn.name}${stateSuffix}.webp`;
   }
   return { 
     backgroundImage: `url(${bgUrl})`,
