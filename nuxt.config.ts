@@ -19,7 +19,13 @@ export default defineNuxtConfig({
     workbox: {
       skipWaiting: true,
       clientsClaim: true,
-      navigateFallback: '/index.html', 
+      navigateFallback: '/', 
+      globDirectory: 'dist',
+      globPatterns: [
+        '**/*.{js,css,html,png,svg,ico,jpg,jpeg,webp,json}',
+        'index.html'
+      ],
+      maximumFileSizeToCacheInBytes: 5000000, 
       
       runtimeCaching: [
         {
@@ -28,14 +34,11 @@ export default defineNuxtConfig({
           options: {
             cacheName: 'google-fonts-cache',
             expiration: {
-              maxAgeSeconds: 60 * 60 * 24 * 30 // 30 days
+              maxAgeSeconds: 60 * 60 * 24 * 30
             }
           }
         }
       ],
-      globDirectory: 'dist',
-      globPatterns: ['**/*.{js,css,html,png,svg,ico,jpg,jpeg,webp,json}'],
-      maximumFileSizeToCacheInBytes: 5000000, // 5MB
     },
     devOptions: {
       enabled: true,
