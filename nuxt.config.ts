@@ -1,4 +1,6 @@
 export default defineNuxtConfig({
+  ssr: false, 
+
   compatibilityDate: '2025-07-15',
   future: {
     compatibilityVersion: 4,
@@ -15,7 +17,10 @@ export default defineNuxtConfig({
       display: 'standalone',
     },
     workbox: {
-      navigateFallback: '/',
+      skipWaiting: true,
+      clientsClaim: true,
+      navigateFallback: '/index.html', 
+      
       runtimeCaching: [
         {
           urlPattern: /^https:\/\/fonts\.googleapis\.com\/.*/i,
@@ -23,7 +28,6 @@ export default defineNuxtConfig({
           options: {
             cacheName: 'google-fonts-cache',
             expiration: {
-              maxEntries: 10,
               maxAgeSeconds: 60 * 60 * 24 * 30 // 30 days
             }
           }
@@ -41,7 +45,6 @@ export default defineNuxtConfig({
   routeRules: {
     '/**': {
       headers: {
-        // 1209600 = 14 days
         'Cache-Control': 'public, max-age=1209600, s-maxage=1209600, immutable',
       }
     }
