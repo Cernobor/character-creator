@@ -155,6 +155,14 @@ export const actLevel = computed(() => {
     return acc + 1}, -1);
 });
 
+export const subraceName = computed(() => {
+  return rawDataRace.find(r => r.name === selectedSubrace.value)?.race_name
+});
+
+export const raceName = computed(() => {
+  return rawDataRace.find(r => r.name === selectedRace.value)?.race_name
+});
+
 export const reset = () => {
   aspectList.value = rawData.map(item => ({...item,
     selected: item.selected || false,

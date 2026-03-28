@@ -1,12 +1,14 @@
 <script setup lang="ts">
 const { data } = await useFetch('/api/test')
-import { onMounted, ref, onUnmounted } from 'vue';
+import { onMounted, ref, onUnmounted, onBeforeMount } from 'vue';
 import { aspectList, reset, selectedRace, selectedSubrace, loadLocal, saveLocal} from '~/utils/aspects'
-import { compAbilities, copmHp, compEquipment, compPotions, compPowerWords, actLevel} from '~/utils/aspects'
+import { compAbilities, copmHp, compEquipment, compPotions, compPowerWords, actLevel, subraceName, raceName} from '~/utils/aspects'
+import raceData from '~/assets/race.json';
+
+
 
 onMounted(() => {
   loadLocal();
-  screenWidth();
   window.addEventListener('resize', screenWidth);
 });
 
@@ -19,10 +21,14 @@ const tab = ref('tree');
 const isMobile = ref(false);
 
 const screenWidth = () => {
+  if (import.meta.client){
     isMobile.value = window.innerWidth < 790;
+  }
 };
 
-
+onBeforeMount(() => {
+  screenWidth();
+});
 
 watch(
   [aspectList, selectedRace, selectedSubrace],
@@ -40,6 +46,7 @@ watch(
       <button @click="reset" id="reset-btn">Reset</button>
     </div>
     <hr style="margin: 1px 0;">
+    <ClientOnly>
     <div v-if="!isMobile"><RaceDropdown /></div>
     <div v-if="isMobile" class="mobile-layout">
       <div class="tab-menu">
@@ -53,8 +60,9 @@ watch(
         </div>
       <div v-if="tab === 'stats'" class="stats-panel mobile-stats">
         <RaceDropdown />
-        <div class ="stats-main">
+        <div class ="stats-main-mobile stats-main">
           <h2>Postava</h2>
+          <p>Rasa: {{ raceName }} - {{ subraceName }}</p>
           <p>Úroveň: {{ actLevel }}</p>
           <p>Životy: {{ copmHp }}</p>
           <p>Lektvary: {{ compPotions }}</p>
@@ -81,6 +89,7 @@ watch(
       <div class="stats-cont">
         <div class="stats-main">
           <h2>Postava</h2>
+          <p>Rasa: {{ raceName }} - {{ subraceName }}</p>
           <p>Úroveň: {{ actLevel }}</p>
           <p>Životy: {{ copmHp }}</p>
           <p>Lektvary: {{ compPotions }}</p>
@@ -99,6 +108,7 @@ watch(
         </div>
       </div>
     </div>
+    </ClientOnly>
   </div>
 </template>
 
@@ -115,6 +125,7 @@ watch(
   .stats-panel {flex: 1 1 350px; min-width: 320px; padding: 20px; border-radius: 8px;}
   .stats-cont {display: flex; flex-direction: row; flex-wrap: wrap; gap: 20px; justify-content: flex-start;}
   .stats-main {padding-left: 3%;padding-right: 3%; padding-bottom: 6%; padding-top: 1%; flex: 0 0 180px; background-image: url('/images/abilities_background.webp'); background-size: 100% 100%; background-position: center; background-repeat: no-repeat; background-color: transparent; border: none;}
+  .stats-main-mobile{margin-bottom: 20px;}
   .stats-abil {padding-left: 3%;padding-right: 3%; padding-bottom: 6%; padding-top: 1%;flex: 1 1 200px; min-width: 0; word-wrap: break-word; background-image: url('/images/abilities_background.webp'); background-size: 100% 100%; background-position: center; background-repeat: no-repeat; background-color: transparent; border: none;}
   .tab-menu {display: flex; flex-wrap: wrap; width: 100%; margin-bottom: 20px; border-bottom: 2px solid #ccc; }
   .tab-menu button {flex: 1; padding: 12px; border: none; cursor: pointer; font-weight: bold;}
@@ -125,7 +136,7 @@ watch(
   .tabs-tree-inactive { background-image: url('/images/mobile_tab_left.webp'); filter: brightness(0.7);}
   .tabs-tree-active {background-image: url('/images/mobile_tab_left_active.webp'); filter: brightness(1.2);}
   .tabs-stats-inactive {background-image: url('/images/mobile_tab_right.webp'); filter: brightness(0.7);}
-  .tabs-stats-active { background-image: url('webp'); filter: brightness(1.2);}
+  .tabs-stats-active { background-image: url('/images/mobile_tab_right_active.webp'); filter: brightness(1.2);}
   .mobile_tabs_underline { width: 100%; height: 10px; margin-top: -2px; background-size: 100% 100%; transition: background-image 0.3s ease;}
   .underline-tree { background-image: url('/images/mobile_tab_lower_left.webp'); margin-top: 0.6px;}
   .underline-stats { background-image: url('/images/mobile_tab_lower_right.webp'); margin-top: 0.6px;}
