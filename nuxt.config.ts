@@ -32,10 +32,11 @@ export default defineNuxtConfig({
       navigateFallback: '/',
       globDirectory: 'dist',
       globPatterns: [
-        '**/*.{js,css,html,png,svg,ico,jpg,jpeg,webp,json}'
+        '**/*.{js,css,html,png,svg,ico,jpg,jpeg,webp,json}',
+        'index.html'
       ],
-      modifyURLPrefix: {
-        'index.html': '/'
+      templatedURLs: {
+        '/': 'index.html'
       },
       maximumFileSizeToCacheInBytes: 5000000,
       runtimeCaching: [
