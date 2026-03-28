@@ -1,5 +1,5 @@
 export default defineNuxtConfig({
-  ssr: false, 
+  ssr: false,
 
   compatibilityDate: '2025-07-15',
   future: {
@@ -7,6 +7,15 @@ export default defineNuxtConfig({
   },
   devtools: { enabled: true },
   modules: ['@vite-pwa/nuxt'],
+
+  app: {
+    head: {
+      link: [
+        { rel: 'manifest', href: '/manifest.webmanifest' }
+      ]
+    }
+  },
+
   pwa: {
     registerType: 'autoUpdate',
     manifest: {
@@ -15,18 +24,20 @@ export default defineNuxtConfig({
       theme_color: '#ffffff',
       start_url: '/',
       display: 'standalone',
+      scope: '/',
     },
     workbox: {
       skipWaiting: true,
       clientsClaim: true,
-      navigateFallback: '/', 
+      navigateFallback: '/',
       globDirectory: 'dist',
       globPatterns: [
-        '**/*.{js,css,html,png,svg,ico,jpg,jpeg,webp,json}',
-        'index.html'
+        '**/*.{js,css,html,png,svg,ico,jpg,jpeg,webp,json}'
       ],
-      maximumFileSizeToCacheInBytes: 5000000, 
-      
+      modifyURLPrefix: {
+        'index.html': '/'
+      },
+      maximumFileSizeToCacheInBytes: 5000000,
       runtimeCaching: [
         {
           urlPattern: /^https:\/\/fonts\.googleapis\.com\/.*/i,
@@ -34,7 +45,7 @@ export default defineNuxtConfig({
           options: {
             cacheName: 'google-fonts-cache',
             expiration: {
-              maxAgeSeconds: 60 * 60 * 24 * 30
+              maxAgeSeconds: 2592000
             }
           }
         }
