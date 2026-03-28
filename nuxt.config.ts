@@ -29,7 +29,7 @@ export default defineNuxtConfig({
           }
         }
       ],
-      globDirectory: '.output/public',
+      globDirectory: 'dist',
       globPatterns: ['**/*.{js,css,html,png,svg,ico,jpg,jpeg,webp,json}'],
       maximumFileSizeToCacheInBytes: 5000000, // 5MB
     },
