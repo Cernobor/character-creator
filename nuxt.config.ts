@@ -16,13 +16,34 @@ export default defineNuxtConfig({
     },
     workbox: {
       navigateFallback: '/',
-            globDirectory: '.output/public',
-            globPatterns: ['**/*.{js,css,html,png,svg,ico,jpg,jpeg,webp,json}'],
-            maximumFileSizeToCacheInBytes: 5000000, // 5MB
+      runtimeCaching: [
+        {
+          urlPattern: /^https:\/\/fonts\.googleapis\.com\/.*/i,
+          handler: 'CacheFirst',
+          options: {
+            cacheName: 'google-fonts-cache',
+            expiration: {
+              maxEntries: 10,
+              maxAgeSeconds: 60 * 60 * 24 * 30 // 30 days
+            }
+          }
+        }
+      ],
+      globDirectory: '.output/public',
+      globPatterns: ['**/*.{js,css,html,png,svg,ico,jpg,jpeg,webp,json}'],
+      maximumFileSizeToCacheInBytes: 5000000, // 5MB
     },
     devOptions: {
       enabled: true,
       type: 'classic',
     }
   },
+  routeRules: {
+    '/**': {
+      headers: {
+        // 1209600 = 14 days
+        'Cache-Control': 'public, max-age=1209600, s-maxage=1209600, immutable',
+      }
+    }
+  }
 })
