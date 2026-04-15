@@ -18,6 +18,7 @@ export default defineNuxtConfig({
 
   pwa: {
     registerType: 'autoUpdate',
+    injectRegister: 'auto',
     manifest: {
       name: 'Character Creator',
       short_name: 'Char Creator',
@@ -29,15 +30,11 @@ export default defineNuxtConfig({
     workbox: {
       skipWaiting: true,
       clientsClaim: true,
-      navigateFallback: '/',
-      globDirectory: 'dist',
+      cleanupOutdatedCaches: true,
+      navigateFallback: '/index.html',
       globPatterns: [
-        '**/*.{js,css,html,png,svg,ico,jpg,jpeg,webp,json}',
-        'index.html'
+        '**/*.{js,css,html,png,svg,ico,jpg,jpeg,webp,json,webmanifest}',
       ],
-      templatedURLs: {
-        '/': 'index.html'
-      },
       maximumFileSizeToCacheInBytes: 5000000,
       runtimeCaching: [
         {
@@ -58,10 +55,14 @@ export default defineNuxtConfig({
     }
   },
   routeRules: {
-    '/**': {
+    '/sw.js': {
       headers: {
-        'Cache-Control': 'public, max-age=1209600, s-maxage=1209600, immutable',
+        'Cache-Control': 'no-cache, no-store, must-revalidate',
+        'Content-Type': 'application/javascript',
       }
+    },
+    '/_nuxt/**': {
+      headers: { 'Cache-Control': 'public, max-age=31536000, immutable' }
     }
   }
 })

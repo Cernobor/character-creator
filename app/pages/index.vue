@@ -10,6 +10,12 @@ import raceData from '~/assets/race.json';
 onMounted(() => {
   loadLocal();
   window.addEventListener('resize', screenWidth);
+
+  if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.ready.then((registration) => {
+      console.log('PWA Service Worker je připraven a aktivní.');
+    });
+  }
 });
 
 onUnmounted(() => {
