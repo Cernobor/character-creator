@@ -43,7 +43,8 @@
         "name": "pomezni_lid", 
         "race": "clovek",
         "subrace": true,
-        "equipment": ["+1 orlén"]
+        "equipment": ["+1 orlén"],
+        "abilities_description": ["Přidává 1 orlén na začátku"]
     },
 
     {       
@@ -102,6 +103,7 @@
         "name": " ", 
         "race": "elf",
         "subrace": true,
-        "power_words": 1
+        "power_words": 1,
+        "abilities_description": ["Přidává 1 slovo moci"]
     }
 ]
