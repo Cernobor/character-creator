@@ -20,9 +20,12 @@ const tab = ref('tree');
 
 const isMobile = ref(false);
 
+const isOverlay = ref(false);
+
 const screenWidth = () => {
-  if (import.meta.client){
-    isMobile.value = window.innerWidth < 790;
+  if (import.meta.client) {
+    isMobile.value = window.innerWidth < 850;
+    isOverlay.value = isOverlay.value && window.innerWidth < 850;
   }
 };
 
@@ -40,6 +43,7 @@ watch(
 </script>
 
 <template>
+  <div v-if="isOverlay && isMobile" style="position: fixed; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.5); z-index: 100;"></div>
   <div class="main">
     <div id="main-row">
       <h1>Character Creator</h1>
@@ -56,7 +60,7 @@ watch(
       </div>
       <div class = "tab-content">
         <div v-if="tab === 'tree'" class="tree-container">
-          <AspectButton :buttons="aspectList" />
+          <AspectButton :buttons="aspectList" @overlay="(value) => { console.log('receive', value); isOverlay = value; }" />
         </div>
       <div v-if="tab === 'stats'" class="stats-panel mobile-stats">
         <RaceDropdown />
