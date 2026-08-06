@@ -27,8 +27,8 @@ const getUnlockedByNames = (unlockedBy: string | string[] | undefined) => {
     <hr />
     <p v-if="aspect.equipment" class="skills"><strong>Výbava:</strong> {{ aspect.equipment.join(', ')}}</p>
     <p v-if="aspect.abilities" class="skills"><strong>Schopnosti:</strong> {{ aspect.abilities.join(', ')}}</p>
-    <p v-if="aspect.abilities_numerals" class="skills"><strong>Přidává:</strong> {{ aspect.abilities_numerals.}}</p>    
-    <p v-if="aspect.abilities_upgraded" class="skills"><strong>Vylepšené:</strong> {{ aspect.abilities_upgraded.join(', ')}}</p>
+    <p v-if="aspect.abilities_numerals" class="skills"><strong>Přidává:</strong> {{ aspect.abilities_numerals}}</p>    
+    <p v-if="aspect.abilities_upgraded" class="skills"><strong>Vylepšení:</strong> {{ aspect.abilities_upgraded.join(', ')}}</p>
     <p v-if="aspect.upgrade_description" class="skills"><strong>Popis vylepšení:</strong> {{ aspect.upgrade_description }}</p>
     <p v-if="aspect.upgrade_reqs_description" class="reqs"><strong>Požadavky na vylepšení:</strong> {{ aspect.upgrade_reqs_description }}</p>
     <div v-if="showButtons" class="buttons">
