@@ -7,11 +7,11 @@
     },
 
     {       
-        "race_name": "Orlemburk",
-        "name": "orlemburk", 
+        "race_name": "Orlenburk",
+        "name": "orlenburk", 
         "race": "clovek",
         "subrace": true,
-        "abilities": ["1x za herčas může ktvar vypít na dvakrát (lektvar musí být na počátku celý)"]
+        "abilities": ["1x za herčas může lektvar vypít na dvakrát (lektvar musí být na počátku celý)"]
     },
 
     {       
