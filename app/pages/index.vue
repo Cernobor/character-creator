@@ -115,10 +115,9 @@ watch(
 </template>
 
 <style scoped>
-  @import url('https://fonts.googleapis.com/css2?family=Alice&display=swap');
 #main-row {display: flex; align-items: center; justify-content: space-between; padding: 10px 5% 10px 20px; width: 100%; box-sizing: border-box; gap: 10px;}
   #main-row h1 {margin: 0; flex-shrink: 1; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;}
-  #reset-btn{padding-top: 0px; flex-shrink: 0; font-family: "Alice", serif; font-weight: 400; font-style: normal; font-size: 20px; color: aliceblue; -webkit-text-stroke: 0.2px grey; align-self: right; min-width: 100px; height: 50px; background-image: url('/images/reset.webp'); background-size: 100% 100%; background-position: center; background-repeat: no-repeat; background-color: transparent; border: none;}
+  #reset-btn{padding-top: 0px; flex-shrink: 0; font-family: serif; font-weight: 400; font-style: normal; font-size: 20px; color: aliceblue; -webkit-text-stroke: 0.2px grey; align-self: right; min-width: 100px; height: 50px; background-image: url('/images/reset.webp'); background-size: 100% 100%; background-position: center; background-repeat: no-repeat; background-color: transparent; border: none;}
   #reset-btn:hover {filter: brightness(1.2);}
   #reset-btn:active {filter: brightness(0.8);}
   .desktop-layout {display: flex; flex-direction: row;flex-wrap: wrap; align-items: flex-start; gap: 40px; padding: 20px;}
@@ -131,9 +130,9 @@ watch(
   .tab-menu {display: flex; flex-wrap: wrap; width: 100%; margin-bottom: 20px; border-bottom: 2px solid #ccc; }
   .tab-menu button {flex: 1; padding: 12px; border: none; cursor: pointer; font-weight: bold;}
   .mobile-layout { padding: 10px; }
-  .main{font-family: "Alice", serif; font-weight: 400; font-style: normal;}
+  .main{font-family: serif; font-weight: 400; font-style: normal;}
   .tree-container { overflow-x: auto; padding-bottom: 20px; }
-   .mobile_tabs {flex: 1; height: 50px; border: none; cursor: pointer; font-family: "Alice", serif; font-size: 16px; color: white; text-shadow: 1px 1px 2px black; background-size: 100% 100%; background-color: transparent; transition: all 0.2s ease;}
+   .mobile_tabs {flex: 1; height: 50px; border: none; cursor: pointer; font-family: serif; font-size: 16px; color: white; text-shadow: 1px 1px 2px black; background-size: 100% 100%; background-color: transparent; transition: all 0.2s ease;}
   .tabs-tree-inactive { background-image: url('/images/mobile_tab_left.webp'); filter: brightness(0.7);}
   .tabs-tree-active {background-image: url('/images/mobile_tab_left_active.webp'); filter: brightness(1.2);}
   .tabs-stats-inactive {background-image: url('/images/mobile_tab_right.webp'); filter: brightness(0.7);}
@@ -144,7 +143,6 @@ watch(
 </style>
 
 <style>
-  @import url('https://fonts.googleapis.com/css2?family=Alice&display=swap');
   body{margin: 0; padding: 0;}
   body::before{content: ''; position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1;background-image: url('/images/background.webp'); background-size: cover; background-position: center; background-repeat: no-repeat; background-color: transparent; border: none;}
 </style>

@@ -148,7 +148,7 @@ const mobileColumns = computed<Columns>(() => {
           {{ btn.skill_name }}
         </button>
 
-         <AspectInfo
+      <AspectInfo
           v-if="activeTooltipBtn === btn"
           :aspect="btn"
           :allAspects="props.buttons"
@@ -163,7 +163,7 @@ const mobileColumns = computed<Columns>(() => {
     <div v-for="[key, col] in Object.entries(mobileColumns).filter(([k, _]) => k !== 'others')" :key="key" class="mobile-column">
       <template v-for="(btn, idx) in col" :key="idx">
         <div v-if="btn.isPlaceholder" class="placeholder-space"></div>
-        <div v-else class="btn-wrapper">
+       <div v-else class="btn-wrapper">
           <button
             @click="() => {
               if (activeTooltipBtn === null) {
@@ -203,7 +203,6 @@ const mobileColumns = computed<Columns>(() => {
 </template>
 
 <style scoped>
-  @import url('https://fonts.googleapis.com/css2?family=Alice&display=swap');
   .custom-btn { padding: 10px 10px; color: black;  cursor: pointer; width: 145px; height: 45px; border: none;}
   .tree-container {  display: grid; grid-template-columns: repeat(5, 1fr); grid-template-rows: repeat(10, 35px); gap: 20px; position: relative;}
   .stats {min-width: 100px;}
@@ -214,7 +213,7 @@ const mobileColumns = computed<Columns>(() => {
   @media (max-width: 849px) {.desktop-only { display: none; }.mobile-tree-container { display: flex; flex-wrap: wrap; } }
   @media (min-width: 850px) {.mobile-only { display: none; }}
   .placeholder-space { width: 145px; height: 45px; visibility: hidden;}
-  .aspect_btn {background-size: 100% 100%; background-position: center; background-repeat: no-repeat; background-color: transparent; font-family: "Alice", serif; font-weight: 400; font-style: normal; font-size: 15px;}
+  .aspect_btn {background-size: 100% 100%; background-position: center; background-repeat: no-repeat; background-color: transparent; font-family: serif; font-weight: 400; font-style: normal; font-size: 15px;}
   .aspect_btn:hover {filter: brightness(1.2);}
   .btn-wrapper {position: relative; display: inline-block;}
   .btn-wrapper:hover {z-index: 9999;}

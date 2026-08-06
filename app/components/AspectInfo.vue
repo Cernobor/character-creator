@@ -27,8 +27,9 @@ const getUnlockedByNames = (unlockedBy: string | string[] | undefined) => {
     <hr />
     <p v-if="aspect.equipment" class="skills"><strong>Výbava:</strong> {{ aspect.equipment.join(', ')}}</p>
     <p v-if="aspect.abilities" class="skills"><strong>Schopnosti:</strong> {{ aspect.abilities.join(', ')}}</p>
-    <p v-if="aspect.abilities_upgraded" class="skills"><strong>Vylepšené:</strong> {{ aspect.abilities_upgraded.join(', ')}}</p>
-    <p v-if="aspect.upgrade_description" class="skills"><strong>Popis:</strong> {{ aspect.upgrade_description }}</p>
+    <p v-if="aspect.abilities_numerals" class="skills"><strong>Přidává:</strong> {{ aspect.abilities_numerals}}</p>    
+    <p v-if="aspect.abilities_upgraded" class="skills"><strong>Vylepšení:</strong> {{ aspect.abilities_upgraded.join(', ')}}</p>
+    <p v-if="aspect.upgrade_description" class="skills"><strong>Popis vylepšení:</strong> {{ aspect.upgrade_description }}</p>
     <p v-if="aspect.upgrade_reqs_description" class="reqs"><strong>Požadavky na vylepšení:</strong> {{ aspect.upgrade_reqs_description }}</p>
     <div v-if="showButtons" class="buttons">
       <button
@@ -45,7 +46,6 @@ const getUnlockedByNames = (unlockedBy: string | string[] | undefined) => {
 </template>
 
 <style scoped>
-  @import url('https://fonts.googleapis.com/css2?family=Alice&display=swap');
   @media (max-width: 849px) {
     .container {
       width: calc(100% - 48px) !important;
@@ -72,7 +72,7 @@ const getUnlockedByNames = (unlockedBy: string | string[] | undefined) => {
     box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.8);
     z-index: 10000;
     pointer-events: auto;
-    font-family: 'Alice', serif;
+    font-family: serif;
     font-size: 13px;
     text-align: left;
     color: black;
@@ -84,6 +84,6 @@ const getUnlockedByNames = (unlockedBy: string | string[] | undefined) => {
   p {margin: 4px 0; line-height: 1.3; text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);}
   .reqs {color: #ff6b6b;}
   .buttons { width: 100%; margin-top: 12px; display: flex; flex-direction: row; justify-content: space-around; flex-wrap: wrap; gap: 12px; }
-  .btn { min-width: 131px; height: 45px; filter: brightness(0.8); z-index: 10; transition: all 0.2s ease; background-image: url('/images/race_button.webp'); background-size: 100% 100%; background-position: center; background-repeat: no-repeat; background-color: transparent; border: none; font-family: "Alice", serif; color: white; padding: 0 15px; cursor: pointer;}
+  .btn { min-width: 131px; height: 45px; filter: brightness(0.8); z-index: 10; transition: all 0.2s ease; background-image: url('/images/race_button.webp'); background-size: 100% 100%; background-position: center; background-repeat: no-repeat; background-color: transparent; border: none; font-family: serif; color: white; padding: 0 15px; cursor: pointer;}
   .btn.disabled { filter: saturate(0); cursor: not-allowed; }
 </style>
