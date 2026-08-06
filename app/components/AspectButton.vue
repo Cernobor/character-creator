@@ -148,15 +148,14 @@ const mobileColumns = computed<Columns>(() => {
           {{ btn.skill_name }}
         </button>
 
-        <div v-if="activeTooltipBtn === btn" class="ability-tooltip" :class="getTooltipPositionClass(btn)">
-          <h4>{{ btn.skill_name }}</h4>
-          <p v-if="btn.equipment" class="skills"><strong>Výbava:</strong> {{ btn.equipment.join(', ')}}</p>
-          <p v-if="btn.abilities" class="skills"><strong>Schopnosti:</strong> {{ btn.abilities.join(', ')}}</p>
-          <p v-if="btn.abilities_upgraded" class="skills"><strong>Vylepšené:</strong> {{ btn.abilities_upgraded.join(', ') }}</p>
-          <p v-if="btn.upgrade_description" class="skills"><strong>Popis:</strong> {{ btn.upgrade_description}}</p>
-          <p v-if="btn.upgrade_reqs_description" class="reqs"><strong>Požadavky na vylepšení:</strong> {{ btn.upgrade_reqs_description}}</p>
-          <p v-if="btn.unlocked_by && btn.unlocked_by.length" class="reqs"><strong>Požadavky na otevření:</strong> {{ getUnlockedByNames(btn.unlocked_by) }}</p>
-        </div>
+         <AspectInfo
+          v-if="activeTooltipBtn === btn"
+          :aspect="btn"
+          :allAspects="props.buttons"
+          :showButtons="false"
+          :class="getTooltipPositionClass(btn)"
+          class="ability-tooltip"
+        />
       </div>
     </template>
   </div>
@@ -192,29 +191,14 @@ const mobileColumns = computed<Columns>(() => {
         </button>
       </div>
     </div>
-    <div
+    <AspectInfo
       v-if="activeTooltipBtn !== null"
-      class="ability-tooltip"
-    >
-      <h4>{{ activeTooltipBtn.skill_name }}</h4>
-      <p v-if="activeTooltipBtn.equipment" class="skills"><strong>Výbava:</strong> {{ activeTooltipBtn.equipment.join(', ')}}</p>
-      <p v-if="activeTooltipBtn.abilities" class="skills"><strong>Schopnosti:</strong> {{ activeTooltipBtn.abilities.join(', ')}}</p>
-      <p v-if="activeTooltipBtn.abilities_upgraded" class="skills"><strong>Vylepšené:</strong> {{ activeTooltipBtn.abilities_upgraded.join(', ')}}</p>
-      <p v-if="activeTooltipBtn.upgrade_description" class="skills"><strong>Popis:</strong> {{ activeTooltipBtn.upgrade_description }}</p>
-      <p v-if="activeTooltipBtn.upgrade_reqs_description" class="reqs"><strong>Požadavky:</strong> {{ activeTooltipBtn.upgrade_reqs_description }}</p>
-      <p v-if="activeTooltipBtn.unlocked_by && activeTooltipBtn.unlocked_by.length" class="reqs"><strong>Požadavky na otevření:</strong> {{ getUnlockedByNames(activeTooltipBtn.unlocked_by) }}</p>
-      <div class="buttons">
-        <button
-          @click="activeTooltipBtn.pressed_aspect()"
-          class="btn"
-          :class="{ 'disabled': !activeTooltipBtn.unlocked }"
-        >{{ activeTooltipBtn.selected ? 'Odebrat' : 'Vybrat' }}</button>
-        <button
-          @click="activeTooltipBtn = null"
-          class="btn"
-        >Zavřít</button>
-      </div>
-    </div>
+      :aspect="activeTooltipBtn"
+      :allAspects="props.buttons"
+      :showButtons="true"
+      @toggle="activeTooltipBtn.pressed_aspect()"
+      @close="activeTooltipBtn = null"
+    />
   </div>
 </template>
 
@@ -227,20 +211,13 @@ const mobileColumns = computed<Columns>(() => {
   .mobile-tree-container { display: none; width: 100%; justify-content: center; gap: 15px; }
   .mobile-column { display: flex; flex-direction: column; gap: 10px; align-items: center; }
   .mobile-btn { width: 145px;}
-  @media (max-width: 849px) {.desktop-only { display: none; }.mobile-tree-container { display: flex; flex-wrap: wrap; } .ability-tooltip { width: calc(100% - 48px) !important; max-width: 440px; position: fixed !important; top: 50%; left: 50%; transform: translate(-50%, -50%);}}
+  @media (max-width: 849px) {.desktop-only { display: none; }.mobile-tree-container { display: flex; flex-wrap: wrap; } }
   @media (min-width: 850px) {.mobile-only { display: none; }}
   .placeholder-space { width: 145px; height: 45px; visibility: hidden;}
   .aspect_btn {background-size: 100% 100%; background-position: center; background-repeat: no-repeat; background-color: transparent; font-family: "Alice", serif; font-weight: 400; font-style: normal; font-size: 15px;}
   .aspect_btn:hover {filter: brightness(1.2);}
   .btn-wrapper {position: relative; display: inline-block;}
   .btn-wrapper:hover {z-index: 9999;}
-  .ability-tooltip {position: absolute; width: 240px; overflow-y: auto; background-image: url('/images/background.webp'); background-size: cover; background-position: center; background-repeat: no-repeat; background-color: #1a1a1a; border: 1px solid #d4af37; color: #f0e6d2; padding: 12px; border-radius: 6px; box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.8); z-index: 10000; pointer-events: auto; font-family: 'Alice', serif; font-size: 13px; text-align: left;}
-  .ability-tooltip h4 {margin: 0 0 6px 0; color: black; font-size: 15px; border-bottom: 1px solid rgba(212, 175, 55, 0.4); padding-bottom: 4px; text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);}
-  .ability-tooltip p {margin: 4px 0; line-height: 1.3; text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);}
-  .ability-tooltip .reqs {color: #ff6b6b;}
-  .skills{color:rgb(0, 0, 0);}
-  .ability-tooltip::-webkit-scrollbar {width: 4px;}
-  .ability-tooltip::-webkit-scrollbar-thumb {background: #d4af37; border-radius: 2px;}
   .ability-tooltip.align-center {left: 50%; transform: translateX(-50%);}
   .ability-tooltip.position-top {bottom: 110%; top: auto;}
   .ability-tooltip.position-bottom {top: 110%; bottom: auto;}
@@ -248,8 +225,5 @@ const mobileColumns = computed<Columns>(() => {
   .ability-tooltip.position-side-left { right: 110%; left: auto; top: 50%; transform: translateY(-50%); bottom: auto;}
   .ability-tooltip.align-top {top: 0 !important; bottom: auto !important; transform: none !important;}
   .ability-tooltip.align-bottom {bottom: 0 !important; top: auto !important; transform: none !important;}
-  .ability-tooltip .buttons { width: 100%; margin-top: 12px; display: flex; flex-direction: row; justify-content: space-around; flex-wrap: wrap; gap: 12px; }
-  .ability-tooltip .btn { min-width: 131px; height: 45px; filter: brightness(0.8); z-index: 10; transition: all 0.2s ease; background-image: url('/images/race_button.webp'); background-size: 100% 100%; background-position: center; background-repeat: no-repeat; background-color: transparent; border: none; font-family: "Alice", serif; color: white; padding: 0 15px; cursor: pointer;}
-  .ability-tooltip .btn.disabled { filter: saturate(0); cursor: not-allowed; }
   .break { flex-basis: 100%; height: 0; }
 </style>
