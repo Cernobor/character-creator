@@ -66,7 +66,7 @@ watch(
           <p>Úroveň: {{ actLevel }}</p>
           <p>Životy: {{ copmHp }}</p>
           <p>Lektvary: {{ compPotions }}</p>
-          <p>Slova moci: {{ compPowerWords }}</p>  
+          <p>Slova moci: {{ compPowerWords }}</p>
           <h3>Výbava:</h3>
           <ul>
             <li v-for="ability in compEquipment" :key="ability">{{ ability }}</li>
@@ -82,9 +82,7 @@ watch(
       </div>
     </div>
     <div v-else class="desktop-layout">
-  <div class="tree-wrapper">
     <AspectButton :buttons="aspectList" />
-  </div>
     <div class="stats-panel">
       <div class="stats-cont">
         <div class="stats-main">
@@ -121,7 +119,6 @@ watch(
   #reset-btn:active {filter: brightness(0.8);}
   .desktop-layout {display: flex; flex-direction: row;flex-wrap: wrap; align-items: flex-start; gap: 40px; padding: 20px;}
   .desktop-layout {display: flex; flex-direction: row; flex-wrap: wrap; align-items: flex-start; gap: 40px; padding: 20px; justify-content: flex-start;}
-  .tree-wrapper {flex: 0 0 840px;  width: 840px;}
   .stats-panel {flex: 1 1 350px; min-width: 320px; padding: 20px; border-radius: 8px;}
   .stats-cont {display: flex; flex-direction: row; flex-wrap: wrap; gap: 20px; justify-content: flex-start;}
   .stats-main {padding-left: 3%;padding-right: 3%; padding-bottom: 6%; padding-top: 1%; flex: 0 0 180px; background-image: url('/images/abilities_background.webp'); background-size: 100% 100%; background-position: center; background-repeat: no-repeat; background-color: transparent; border: none;}

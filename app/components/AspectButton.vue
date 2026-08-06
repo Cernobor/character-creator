@@ -42,13 +42,13 @@ const getTooltipPositionClass = (btn: AspectList) => {
 
   if (posX === 1) {
     classes.push('position-side-right');
-  } 
-  else if (posX === 5) { 
+  }
+  else if (posX === 5) {
     classes.push('position-side-left');
-  } 
+  }
   else if (posY === 1) {
     classes.push('position-bottom', 'align-center');
-  } 
+  }
   else {
     classes.push('position-top', 'align-center');
   }
@@ -89,7 +89,7 @@ const getButtonBackground = (btn: AspectList) => {
   else{
     bgUrl = `/images/${btn.name}${stateSuffix}.webp`;
   }
-  return { 
+  return {
     backgroundImage: `url(${bgUrl})`,
     transform: btn.selected ? 'scale(1.05)' : 'scale(1)',
     zIndex: btn.selected ? '10' : '1',
@@ -110,7 +110,7 @@ const mobileColumns = computed(() => {
   const left: any[] = [];
   const right: any[] = [];
   const others: any[] = [];
-  
+
   const visibleButtons = props.buttons.filter(btn => !btn.hidden);
 
   visibleButtons.forEach(btn => {
@@ -150,100 +150,99 @@ const mobileColumns = computed(() => {
 <template>
   <div class="tree-container desktop-only">
     <template v-for="btn in buttons" :key="btn.skill_name">
-      
-    <div 
-      v-if="!btn.hidden" 
-      class="btn-wrapper"
-      :style="{ gridColumn: btn.position_x, gridRow: btn.postion_y }"
-      @mouseenter="handleMouseEnter(btn)"
-      @mouseleave="handleMouseLeave"
-    >
-      <button
-        @click="btn.pressed_aspect(); handleMouseLeave();"
-        :style="[ getButtonBackground(btn), { color: (btn.type_color === 'yellow' || btn.type_color === 'white') ? 'black' : 'aliceblue'}]"
-        class="custom-btn aspect_btn">
-        {{ btn.skill_name }}
-      </button>
-
-      <div v-if="activeTooltipBtn === btn" class="ability-tooltip" :class="getTooltipPositionClass(btn)">
-        <h4>{{ btn.skill_name }}</h4>
-        <p v-if="btn.equipment" class="skills"><strong>Výbava:</strong> {{ btn.equipment.join(', ')}}</p>
-        <p v-if="btn.abilities" class="skills"><strong>Schopnosti:</strong> {{ btn.abilities.join(', ')}}</p>
-        <p v-if="btn.abilities_upgraded" class="skills"><strong>Vylepšené:</strong> {{ btn.abilities_upgraded.join(', ') }}</p>
-        <p v-if="btn.upgrade_description" class="skills"><strong>Popis:</strong> {{ btn.upgrade_description}}</p>
-        <p v-if="btn.upgrade_reqs_description" class="reqs"><strong>Požadavky na vylepšení:</strong> {{ btn.upgrade_reqs_description}}</p>
-        <p v-if="btn.unlocked_by && btn.unlocked_by.length" class="reqs"><strong>Požadavky na otevření:</strong> {{ getUnlockedByNames(btn.unlocked_by) }}</p>
-      </div>
-    </div>
-    </template>
-  </div>
-<div class="mobile-tree-container mobile-only">
-    <div class="mobile-column">
-      <template v-for="(btn, index) in mobileColumns.left" :key="'left-' + index">
-        <div v-if="btn.isPlaceholder" class="placeholder-space"></div>
-        <div 
-        v-else 
+      <div
+        v-if="!btn.hidden"
         class="btn-wrapper"
+        :style="{ gridColumn: btn.position_x, gridRow: btn.postion_y }"
         @mouseenter="handleMouseEnter(btn)"
         @mouseleave="handleMouseLeave"
       >
         <button
-          @click="activeTooltipBtn = (activeTooltipBtn === btn ? null : btn); btn.pressed_aspect();"
-          :style="[getButtonBackground(btn), {color: (btn.type_color === 'yellow' || btn.type_color === 'white') ? 'black' : 'aliceblue'}]"
-          class="custom-btn mobile-btn aspect_btn"
-        >
+          @click="btn.pressed_aspect(); handleMouseLeave();"
+          :style="[ getButtonBackground(btn), { color: (btn.type_color === 'yellow' || btn.type_color === 'white') ? 'black' : 'aliceblue'}]"
+          class="custom-btn aspect_btn">
           {{ btn.skill_name }}
         </button>
-        <div 
-          v-if="activeTooltipBtn === btn" 
-          class="ability-tooltip" 
-          :class="getMobileTooltipClass('left', index, mobileColumns.left.length)"
-          @mouseenter="clearHoverTimer()"
-          @mouseleave="handleMouseLeave()"
-        >
+
+        <div v-if="activeTooltipBtn === btn" class="ability-tooltip" :class="getTooltipPositionClass(btn)">
           <h4>{{ btn.skill_name }}</h4>
           <p v-if="btn.equipment" class="skills"><strong>Výbava:</strong> {{ btn.equipment.join(', ')}}</p>
           <p v-if="btn.abilities" class="skills"><strong>Schopnosti:</strong> {{ btn.abilities.join(', ')}}</p>
-          <p v-if="btn.abilities_upgraded" class="skills"><strong>Vylepšené:</strong> {{ btn.abilities_upgraded.join(', ')}}</p>
-          <p v-if="btn.upgrade_description" class="skills"><strong>Popis:</strong> {{ btn.upgrade_description }}</p>
-          <p v-if="btn.upgrade_reqs_description" class="reqs"><strong>Požadavky:</strong> {{ btn.upgrade_reqs_description }}</p>
+          <p v-if="btn.abilities_upgraded" class="skills"><strong>Vylepšené:</strong> {{ btn.abilities_upgraded.join(', ') }}</p>
+          <p v-if="btn.upgrade_description" class="skills"><strong>Popis:</strong> {{ btn.upgrade_description}}</p>
+          <p v-if="btn.upgrade_reqs_description" class="reqs"><strong>Požadavky na vylepšení:</strong> {{ btn.upgrade_reqs_description}}</p>
           <p v-if="btn.unlocked_by && btn.unlocked_by.length" class="reqs"><strong>Požadavky na otevření:</strong> {{ getUnlockedByNames(btn.unlocked_by) }}</p>
         </div>
       </div>
+    </template>
+  </div>
+  <div class="mobile-tree-container mobile-only">
+    <div class="mobile-column">
+      <template v-for="(btn, index) in mobileColumns.left" :key="'left-' + index">
+        <div v-if="btn.isPlaceholder" class="placeholder-space"></div>
+        <div
+          v-else
+          class="btn-wrapper"
+          @mouseenter="handleMouseEnter(btn)"
+          @mouseleave="handleMouseLeave"
+        >
+          <button
+            @click="activeTooltipBtn = (activeTooltipBtn === btn ? null : btn); btn.pressed_aspect();"
+            :style="[getButtonBackground(btn), {color: (btn.type_color === 'yellow' || btn.type_color === 'white') ? 'black' : 'aliceblue'}]"
+            class="custom-btn mobile-btn aspect_btn"
+          >
+            {{ btn.skill_name }}
+          </button>
+          <div
+            v-if="activeTooltipBtn === btn"
+            class="ability-tooltip"
+            :class="getMobileTooltipClass('left', index, mobileColumns.left.length)"
+            @mouseenter="clearHoverTimer()"
+            @mouseleave="handleMouseLeave()"
+          >
+            <h4>{{ btn.skill_name }}</h4>
+            <p v-if="btn.equipment" class="skills"><strong>Výbava:</strong> {{ btn.equipment.join(', ')}}</p>
+            <p v-if="btn.abilities" class="skills"><strong>Schopnosti:</strong> {{ btn.abilities.join(', ')}}</p>
+            <p v-if="btn.abilities_upgraded" class="skills"><strong>Vylepšené:</strong> {{ btn.abilities_upgraded.join(', ')}}</p>
+            <p v-if="btn.upgrade_description" class="skills"><strong>Popis:</strong> {{ btn.upgrade_description }}</p>
+            <p v-if="btn.upgrade_reqs_description" class="reqs"><strong>Požadavky:</strong> {{ btn.upgrade_reqs_description }}</p>
+            <p v-if="btn.unlocked_by && btn.unlocked_by.length" class="reqs"><strong>Požadavky na otevření:</strong> {{ getUnlockedByNames(btn.unlocked_by) }}</p>
+          </div>
+        </div>
       </template>
     </div>
     <div class="mobile-column">
       <template v-for="(btn, index) in mobileColumns.right" :key="'right-' + index">
         <div v-if="btn.isPlaceholder" class="placeholder-space"></div>
-        <div 
-        v-else 
-        class="btn-wrapper"
-        @mouseenter="handleMouseEnter(btn)"
-        @mouseleave="handleMouseLeave"
-      >
-        <button
-          @click="activeTooltipBtn = (activeTooltipBtn === btn ? null : btn); btn.pressed_aspect();"
-          :style="[getButtonBackground(btn), {color: (btn.type_color === 'yellow' || btn.type_color === 'white') ? 'black' : 'aliceblue'}]"
-          class="custom-btn mobile-btn aspect_btn"
+        <div
+          v-else
+          class="btn-wrapper"
+          @mouseenter="handleMouseEnter(btn)"
+          @mouseleave="handleMouseLeave"
         >
-          {{ btn.skill_name }}
-        </button>
-        <div 
-          v-if="activeTooltipBtn === btn" 
-          class="ability-tooltip" 
-          :class="getMobileTooltipClass('right', index, mobileColumns.right.length)"
-          @mouseenter="clearHoverTimer()"
-          @mouseleave="handleMouseLeave()"
-        >
-          <h4>{{ btn.skill_name }}</h4>
-          <p v-if="btn.equipment" class="skills"><strong>Výbava:</strong> {{ btn.equipment.join(', ')}}</p>
-          <p v-if="btn.abilities" class="skills"><strong>Schopnosti:</strong> {{ btn.abilities.join(', ')}}</p>
-          <p v-if="btn.abilities_upgraded" class="skills"><strong>Vylepšené:</strong> {{ btn.abilities_upgraded.join(', ')}}</p>
-          <p v-if="btn.upgrade_description" class="skills"><strong>Popis:</strong> {{ btn.upgrade_description }}</p>
-          <p v-if="btn.upgrade_reqs_description" class="reqs"><strong>Požadavky:</strong> {{ btn.upgrade_reqs_description }}</p>
-          <p v-if="btn.unlocked_by && btn.unlocked_by.length" class="reqs"><strong>Požadavky na otevření:</strong> {{ getUnlockedByNames(btn.unlocked_by) }}</p>
+          <button
+            @click="activeTooltipBtn = (activeTooltipBtn === btn ? null : btn); btn.pressed_aspect();"
+            :style="[getButtonBackground(btn), {color: (btn.type_color === 'yellow' || btn.type_color === 'white') ? 'black' : 'aliceblue'}]"
+            class="custom-btn mobile-btn aspect_btn"
+          >
+            {{ btn.skill_name }}
+          </button>
+          <div
+            v-if="activeTooltipBtn === btn"
+            class="ability-tooltip"
+            :class="getMobileTooltipClass('right', index, mobileColumns.right.length)"
+            @mouseenter="clearHoverTimer()"
+            @mouseleave="handleMouseLeave()"
+          >
+            <h4>{{ btn.skill_name }}</h4>
+            <p v-if="btn.equipment" class="skills"><strong>Výbava:</strong> {{ btn.equipment.join(', ')}}</p>
+            <p v-if="btn.abilities" class="skills"><strong>Schopnosti:</strong> {{ btn.abilities.join(', ')}}</p>
+            <p v-if="btn.abilities_upgraded" class="skills"><strong>Vylepšené:</strong> {{ btn.abilities_upgraded.join(', ')}}</p>
+            <p v-if="btn.upgrade_description" class="skills"><strong>Popis:</strong> {{ btn.upgrade_description }}</p>
+            <p v-if="btn.upgrade_reqs_description" class="reqs"><strong>Požadavky:</strong> {{ btn.upgrade_reqs_description }}</p>
+            <p v-if="btn.unlocked_by && btn.unlocked_by.length" class="reqs"><strong>Požadavky na otevření:</strong> {{ getUnlockedByNames(btn.unlocked_by) }}</p>
+          </div>
         </div>
-      </div>
       </template>
     </div>
   </div>
@@ -255,11 +254,11 @@ const mobileColumns = computed(() => {
   .tree-container {  display: grid; grid-template-columns: repeat(5, 1fr); grid-template-rows: repeat(10, 35px); gap: 20px; position: relative;}
   .stats {min-width: 100px;}
   #reset-btn:hover {background-color: #c0392b;}
-  .mobile-tree-container { display: none; width: 100%; justify-content: center; gap: 15px; padding: 10px; }
+  .mobile-tree-container { display: none; width: 100%; justify-content: center; gap: 15px; }
   .mobile-column { display: flex; flex-direction: column; gap: 10px; align-items: center; }
   .mobile-btn { width: 145px;}
-  @media (max-width: 768px) {.desktop-only { display: none; }.mobile-tree-container { display: flex; } .ability-tooltip { width: 170px; font-size: 11px; padding: 8px;}}
-  @media (min-width: 769px) {.mobile-only { display: none; }}
+  @media (max-width: 789px) {.desktop-only { display: none; }.mobile-tree-container { display: flex; } .ability-tooltip { width: 170px; font-size: 11px; padding: 8px;}}
+  @media (min-width: 790px) {.mobile-only { display: none; }}
   .placeholder-space { width: 145px; height: 45px; visibility: hidden;}
   .aspect_btn {background-size: 100% 100%; background-position: center; background-repeat: no-repeat; background-color: transparent; font-family: "Alice", serif; font-weight: 400; font-style: normal; font-size: 15px;}
   .aspect_btn:hover {filter: brightness(1.2);}
