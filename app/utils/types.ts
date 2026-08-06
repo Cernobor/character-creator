@@ -7,6 +7,7 @@ export interface AspectList {
     potions?: number;
     equipment?: string[];
     abilities?: string[];
+    abilities_numerals?: string;
     unlocks?: string[]; //Jaké schoposti odemiká - children
     unlocked_by?: string[]; //Jakými schoposti je odemikána - parents
     abilities_upgraded?: string[]; //Jak vypadají VŠECHNY schopnosti po vylepšení

@@ -169,8 +169,9 @@ const mobileColumns = computed(() => {
         <h4>{{ btn.skill_name }}</h4>
         <p v-if="btn.equipment" class="skills"><strong>Výbava:</strong> {{ btn.equipment.join(', ')}}</p>
         <p v-if="btn.abilities" class="skills"><strong>Schopnosti:</strong> {{ btn.abilities.join(', ')}}</p>
+        <p v-if="btn.abilities_numerals" class="skills"><strong>Přidává:</strong> {{ btn.abilities_numerals }}</p>
         <p v-if="btn.abilities_upgraded" class="skills"><strong>Vylepšené:</strong> {{ btn.abilities_upgraded.join(', ') }}</p>
-        <p v-if="btn.upgrade_description" class="skills"><strong>Popis:</strong> {{ btn.upgrade_description}}</p>
+        <p v-if="btn.upgrade_description" class="skills"><strong>Popis vylepšení:</strong> {{ btn.upgrade_description}}</p>
         <p v-if="btn.upgrade_reqs_description" class="reqs"><strong>Požadavky na vylepšení:</strong> {{ btn.upgrade_reqs_description}}</p>
         <p v-if="btn.unlocked_by && btn.unlocked_by.length" class="reqs"><strong>Požadavky na otevření:</strong> {{ getUnlockedByNames(btn.unlocked_by) }}</p>
       </div>
@@ -204,8 +205,9 @@ const mobileColumns = computed(() => {
           <h4>{{ btn.skill_name }}</h4>
           <p v-if="btn.equipment" class="skills"><strong>Výbava:</strong> {{ btn.equipment.join(', ')}}</p>
           <p v-if="btn.abilities" class="skills"><strong>Schopnosti:</strong> {{ btn.abilities.join(', ')}}</p>
+          <p v-if="btn.abilities_numerals" class="skills"><strong>Přidává:</strong> {{ btn.abilities_numerals }}</p>
           <p v-if="btn.abilities_upgraded" class="skills"><strong>Vylepšené:</strong> {{ btn.abilities_upgraded.join(', ')}}</p>
-          <p v-if="btn.upgrade_description" class="skills"><strong>Popis:</strong> {{ btn.upgrade_description }}</p>
+          <p v-if="btn.upgrade_description" class="skills"><strong>Popis vylepšení:</strong> {{ btn.upgrade_description }}</p>
           <p v-if="btn.upgrade_reqs_description" class="reqs"><strong>Požadavky:</strong> {{ btn.upgrade_reqs_description }}</p>
           <p v-if="btn.unlocked_by && btn.unlocked_by.length" class="reqs"><strong>Požadavky na otevření:</strong> {{ getUnlockedByNames(btn.unlocked_by) }}</p>
         </div>
@@ -238,8 +240,9 @@ const mobileColumns = computed(() => {
           <h4>{{ btn.skill_name }}</h4>
           <p v-if="btn.equipment" class="skills"><strong>Výbava:</strong> {{ btn.equipment.join(', ')}}</p>
           <p v-if="btn.abilities" class="skills"><strong>Schopnosti:</strong> {{ btn.abilities.join(', ')}}</p>
+          <p v-if="btn.abilities_numerals" class="skills"><strong>Přidává:</strong> {{ btn.abilities_numerals }}</p>
           <p v-if="btn.abilities_upgraded" class="skills"><strong>Vylepšené:</strong> {{ btn.abilities_upgraded.join(', ')}}</p>
-          <p v-if="btn.upgrade_description" class="skills"><strong>Popis:</strong> {{ btn.upgrade_description }}</p>
+          <p v-if="btn.upgrade_description" class="skills"><strong>Popis vylepšení:</strong> {{ btn.upgrade_description }}</p>
           <p v-if="btn.upgrade_reqs_description" class="reqs"><strong>Požadavky:</strong> {{ btn.upgrade_reqs_description }}</p>
           <p v-if="btn.unlocked_by && btn.unlocked_by.length" class="reqs"><strong>Požadavky na otevření:</strong> {{ getUnlockedByNames(btn.unlocked_by) }}</p>
         </div>
@@ -250,7 +253,6 @@ const mobileColumns = computed(() => {
 </template>
 
 <style scoped>
-  @import url('https://fonts.googleapis.com/css2?family=Alice&display=swap');
   .custom-btn { padding: 10px 10px; color: black;  cursor: pointer; width: 145px; height: 45px; border: none;}
   .tree-container {  display: grid; grid-template-columns: repeat(5, 1fr); grid-template-rows: repeat(10, 35px); gap: 20px; position: relative;}
   .stats {min-width: 100px;}
@@ -261,11 +263,11 @@ const mobileColumns = computed(() => {
   @media (max-width: 768px) {.desktop-only { display: none; }.mobile-tree-container { display: flex; } .ability-tooltip { width: 170px; font-size: 11px; padding: 8px;}}
   @media (min-width: 769px) {.mobile-only { display: none; }}
   .placeholder-space { width: 145px; height: 45px; visibility: hidden;}
-  .aspect_btn {background-size: 100% 100%; background-position: center; background-repeat: no-repeat; background-color: transparent; font-family: "Alice", serif; font-weight: 400; font-style: normal; font-size: 15px;}
+  .aspect_btn {background-size: 100% 100%; background-position: center; background-repeat: no-repeat; background-color: transparent; font-family: serif; font-weight: 400; font-style: normal; font-size: 15px;}
   .aspect_btn:hover {filter: brightness(1.2);}
   .btn-wrapper {position: relative; display: inline-block;}
   .btn-wrapper:hover {z-index: 9999;}
-  .ability-tooltip {position: absolute; width: 240px; overflow-y: auto; background-image: url('/images/background.webp'); background-size: cover; background-position: center; background-repeat: no-repeat; background-color: #1a1a1a; border: 1px solid #d4af37; color: #f0e6d2; padding: 12px; border-radius: 6px; box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.8); z-index: 10000; pointer-events: auto; font-family: 'Alice', serif; font-size: 13px; text-align: left;}
+  .ability-tooltip {position: absolute; width: 240px; overflow-y: auto; background-image: url('/images/background.webp'); background-size: cover; background-position: center; background-repeat: no-repeat; background-color: #1a1a1a; border: 1px solid #d4af37; color: #f0e6d2; padding: 12px; border-radius: 6px; box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.8); z-index: 10000; pointer-events: auto; font-family: serif; font-size: 13px; text-align: left;}
   .ability-tooltip h4 {margin: 0 0 6px 0; color: black; font-size: 15px; border-bottom: 1px solid rgba(212, 175, 55, 0.4); padding-bottom: 4px; text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);}
   .ability-tooltip p {margin: 4px 0; line-height: 1.3; text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);}
   .ability-tooltip .reqs {color: #ff6b6b;}
