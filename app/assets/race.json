@@ -27,7 +27,7 @@
         "name": "vrangen", 
         "race": "clovek",
         "subrace": true,
-        "abilities": ["1x za herčas -1 život(nelze použít při 1 životě), -1 max život(do konce herčasu): může znovu použít schopnost, co již použil(ne ve stejném boji). Bojové dovednosti doprovodit vrangenským pokřikem"]
+        "abilities": ["1x za herčas -1 život (nelze použít při 1 životě), -1 max život (do konce herčasu): může znovu použít schopnost, co již použil (ne ve stejném boji). Bojové dovednosti doprovodit vrangenským pokřikem"]
     },
 
     {       
@@ -89,7 +89,7 @@
         "name": "znameni_stinu", 
         "race": "elf",
         "subrace": true,
-        "abilities": ["Při vyslýchání může odpovědět o 1 pootázku navíc lživě či vůbec(Lze kombinovat s jinými podobnými efekty) "]
+        "abilities": ["Při vyslýchání může odpovědět o 1 otázku navíc lživě či vůbec (Lze kombinovat s jinými podobnými efekty) "]
     },
     {       
         "race_name": "Znamení Světla",
