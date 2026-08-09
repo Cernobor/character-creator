@@ -49,7 +49,7 @@ watch(
       <h1>Character Creator</h1>
       <button @click="reset" id="reset-btn">Reset</button>
     </div>
-    <div id="disclaimer"><p>Tato aplikace je jen pomůcka a nenahrazuje přečtení pravidel. Pravdu mají pravidla a orgové. Ta najdeš zde: <a href="https://drive.google.com/file/d/1LNUl4xoo-6roJtNHNtF91OGkmPQP2wlS/view" target="_blank" class="disclaimer_links">pravidla</a>, <a href="https://drive.google.com/file/d/15LN-gh7I_PH8OxODd_eISl0CEOf_p-8W/view" target="_blank" class="disclaimer_links">kniha kouzel</a> a <a href="https://drive.google.com/file/d/1aU7adV_Sw0jaMvE4rssh8sP8uXJozDgw/view" target="_blank" class="disclaimer_links">receptář</a>.</p></div>
+    <div id="disclaimer"><p>Tato aplikace je jen pomůcka a nenahrazuje přečtení pravidel. Pravdu mají pravidla a orgové. Pravidla najdeš zde: <a href="https://drive.google.com/file/d/1LNUl4xoo-6roJtNHNtF91OGkmPQP2wlS/view" target="_blank" class="disclaimer_links">pravidla</a>, <a href="https://drive.google.com/file/d/15LN-gh7I_PH8OxODd_eISl0CEOf_p-8W/view" target="_blank" class="disclaimer_links">kniha kouzel</a> a <a href="https://drive.google.com/file/d/1aU7adV_Sw0jaMvE4rssh8sP8uXJozDgw/view" target="_blank" class="disclaimer_links">receptář</a>.</p></div>
     <hr style="margin: 1px 0;">
     <ClientOnly>
     <div v-if="!isMobile"><RaceDropdown /></div>
