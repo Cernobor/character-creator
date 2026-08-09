@@ -203,17 +203,17 @@ const mobileColumns = computed<Columns>(() => {
 </template>
 
 <style scoped>
-  .custom-btn { padding: 10px 10px; color: black;  cursor: pointer; width: 145px; height: 45px; border: none;}
+  .custom-btn { padding: 10px 10px; color: black;  cursor: pointer; width: 145px; height: 45px; border: none; text-overflow: ellipsis;}
   .tree-container {  display: grid; grid-template-columns: repeat(5, 1fr); grid-template-rows: repeat(10, 35px); gap: 20px; position: relative;}
   .stats {min-width: 100px;}
   #reset-btn:hover {background-color: #c0392b;}
   .mobile-tree-container { display: none; width: 100%; justify-content: center; gap: 15px; }
-  .mobile-column { display: flex; flex-direction: column; gap: 10px; align-items: center; }
+  .mobile-column {text-overflow: ellipsis; display: flex; flex-direction: column; gap: 10px; align-items: center; }
   .mobile-btn { width: 145px;}
   @media (max-width: 849px) {.desktop-only { display: none; }.mobile-tree-container { display: flex; flex-wrap: wrap; } }
   @media (min-width: 850px) {.mobile-only { display: none; }}
   .placeholder-space { width: 145px; height: 45px; visibility: hidden;}
-  .aspect_btn {background-size: 100% 100%; background-position: center; background-repeat: no-repeat; background-color: transparent; font-family: serif; font-weight: 400; font-style: normal; font-size: 15px;}
+  .aspect_btn {text-overflow: ellipsis; background-size: 100% 100%; background-position: center; background-repeat: no-repeat; background-color: transparent; font-family: serif; font-weight: 400; font-style: normal; font-size: 15px;}
   .aspect_btn:hover {filter: brightness(1.2);}
   .btn-wrapper {position: relative; display: inline-block;}
   .btn-wrapper:hover {z-index: 9999;}
