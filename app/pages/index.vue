@@ -49,7 +49,7 @@ watch(
       <h1>Character Creator</h1>
       <button @click="reset" id="reset-btn">Reset</button>
     </div>
-    <div id="disclaimer"><p>Tato aplikace je jen pomůcka a nenahrazuje přečtení pravidel. Pravdu mají pravidla a orgové. Ta najdeš zde: <a href="https://drive.google.com/file/d/1LNUl4xoo-6roJtNHNtF91OGkmPQP2wlS/view" target="_blank">pravidla</a>, <a href="https://drive.google.com/file/d/15LN-gh7I_PH8OxODd_eISl0CEOf_p-8W/view" target="_blank">kniha kouzel</a> a <a href="https://drive.google.com/file/d/15LN-gh7I_PH8OxODd_eISl0CEOf_p-8W/view" target="_blank">receptář</a>.</p></div>
+    <div id="disclaimer"><p>Tato aplikace je jen pomůcka a nenahrazuje přečtení pravidel. Pravdu mají pravidla a orgové. Ta najdeš zde: <a href="https://drive.google.com/file/d/1LNUl4xoo-6roJtNHNtF91OGkmPQP2wlS/view" target="_blank" class="disclaimer_links">pravidla</a>, <a href="https://drive.google.com/file/d/15LN-gh7I_PH8OxODd_eISl0CEOf_p-8W/view" target="_blank" class="disclaimer_links">kniha kouzel</a> a <a href="https://drive.google.com/file/d/1aU7adV_Sw0jaMvE4rssh8sP8uXJozDgw/view" target="_blank" class="disclaimer_links">receptář</a>.</p></div>
     <hr style="margin: 1px 0;">
     <ClientOnly>
     <div v-if="!isMobile"><RaceDropdown /></div>
@@ -121,7 +121,8 @@ watch(
   #reset-btn{padding-top: 0px; flex-shrink: 0; font-family: serif; font-weight: 400; font-style: normal; font-size: 20px; color: aliceblue; -webkit-text-stroke: 0.2px grey; align-self: right; min-width: 100px; height: 50px; background-image: url('/images/reset.webp'); background-size: 100% 100%; background-position: center; background-repeat: no-repeat; background-color: transparent; border: none;}
   #reset-btn:hover {filter: brightness(1.2);}
   #reset-btn:active {filter: brightness(0.8);}
-  #disclaimer {font-size: small; text-align: center; color: #2c2c2c;}
+  #disclaimer {font-size: small; text-align: center; color: rgb(255, 26, 26); font-weight: bold;}
+  .disclaimer_links{color: rgb(255, 26, 26);}
   .desktop-layout {display: flex; flex-direction: row;flex-wrap: wrap; align-items: flex-start; gap: 40px; padding: 20px;}
   .desktop-layout {display: flex; flex-direction: row; flex-wrap: wrap; align-items: flex-start; gap: 40px; padding: 20px; justify-content: flex-start;}
   .stats-panel {flex: 1 1 350px; min-width: 320px; padding: 20px; border-radius: 8px;}
